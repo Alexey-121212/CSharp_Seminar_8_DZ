@@ -47,6 +47,8 @@ SortRowsDescending(matrix);
 Console.WriteLine("\nМатрица с упорядоченными по убыванию строками:");
 PrintMatrix(matrix);
 
+// Methods
+
 static void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
