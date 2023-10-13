@@ -25,13 +25,32 @@
 
 // Сумма наименьшей строки (строка 2): 6
 
+// Ожидаемый ответ:
+
+// Исходная матрица:
+// 9	1	7	
+// 1	2	3	
+// 4	5	6	
+
+// Сумма наименьшей строки (строка 2): 6
+
+// Ваш ответ:
+
+// Исходная матрица:
+// 9	1	7	
+// 1	2	3	
+// 4	5	6	
+
+// Сумма наименьшей строки (строка 3): 15
+
+
+
 int[,] matrix;
 matrix = new int[,]
 {
-                {5, 2, 9},
-                {8, 1, 4},
-                {4, 7, 6},
-                {6, 7, 3}
+                {9, 5, 3},
+                {9, 6, 2},
+                {7, 6, 5}
 };
 Console.WriteLine("Исходная матрица:");
 for (int i = 0; i < matrix.GetLength(0); i++)
@@ -65,13 +84,16 @@ static int[] MinimumSumRow(int[,] matrix)
     // Введите свое решение ниже
     int[] minRow = new int[2];
     int min = SumOfRow(matrix, 0);
-    for (int i = 0; i < matrix.GetLength(1); i++)
+    int minR = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
         if (SumOfRow(matrix, i) < min)
         {
-            minRow[1] = SumOfRow(matrix, i);
-            minRow[0] = i;
+            min = SumOfRow(matrix, i);
+            minR = i;
         }
     }
+    minRow[0] = minR;
+    minRow[1] = min;
     return minRow;
 }
